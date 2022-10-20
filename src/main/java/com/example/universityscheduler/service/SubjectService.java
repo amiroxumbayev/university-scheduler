@@ -9,8 +9,6 @@ import java.util.UUID;
 public interface SubjectService {
 
     SubjectDTO save(SubjectDTO subjectDTO);
-
     SubjectDTO findById(UUID id);
-
     Page<SubjectDTO> findAll(Pageable pageable);
 }
