@@ -36,3 +36,4 @@ mvnw
 mvnw.cmd
 .jar
 maven-wrapper.properties
+/.mvn/wrapper/maven-wrapper.jar
