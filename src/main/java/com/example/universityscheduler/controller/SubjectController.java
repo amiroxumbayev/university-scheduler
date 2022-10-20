@@ -2,6 +2,8 @@ package com.example.universityscheduler.controller;
 
 import com.example.universityscheduler.domain.dto.SubjectDTO;
 import com.example.universityscheduler.service.SubjectService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -38,5 +40,11 @@ public class SubjectController {
         } catch(Exception e) {
             return ResponseEntity.notFound().header("Message",e.getMessage()).build();
         }
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<SubjectDTO>> findAll(Pageable pageable) {
+        Page<SubjectDTO> subjects = subjectService.findAll(pageable);
+        return ResponseEntity.ok(subjects);
     }
 }
