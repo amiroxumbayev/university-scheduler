@@ -1,45 +1,22 @@
 package com.example.universityscheduler.domain;
 
 import lombok.*;
-import org.hibernate.Hibernate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 import java.time.LocalTime;
-import java.util.Objects;
 import java.util.UUID;
 
-@Getter
-@Setter
-@ToString
+@Data
 @RequiredArgsConstructor
-@Entity
+@Document
 public class Schedule {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @ToString.Exclude
-    private Subject subject;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @ToString.Exclude
-    private Teacher teacher;
     private Week week;
     private LocalTime startTime;
     private LocalTime endTime;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Schedule schedule = (Schedule) o;
-        return id != null && Objects.equals(id, schedule.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
 
     public enum Week {
         MONDAY,

@@ -9,15 +9,14 @@ import com.example.universityscheduler.service.TeacherService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.Optional;
 import java.util.UUID;
 
 @Service
 @Transactional
 public class TeacherServiceImpl implements TeacherService {
-
 
     private final TeacherRepository teacherRepository;
 
