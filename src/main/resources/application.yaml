@@ -1,3 +1,13 @@
+keycloak:
+  realm: public-schedule
+  resource: university-scheduler
+  auth-server-url: http://localhost:8087/auth
+  ssl-required: external
+  public-client: true
+  principal-attribute: preferred_username
+  bearer-only: true
+  cors: true
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/university-scheduler
