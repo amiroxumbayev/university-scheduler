@@ -6,3 +6,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+  kafka:
+    consumer:
+      group-id: subject
+      auto-offset-reset: earliest
+      bootstrap-servers: localhost:9092
